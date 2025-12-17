@@ -59,10 +59,10 @@ expect "localhost:~#"
 send "ifup eth0\r"
 
 expect "localhost:~#"
-send "sed -i -E 's/(local kernel_opts)=.*/\\1=\"console=ttyS0\"/' /sbin/setup-disk\r"
+send "sed -i -E 's/(local kernel_opts)=.*/\\1=\"console=ttyS0\"/' /usr/sbin/setup-disk\r"
 
 expect "localhost:~#"
-send "sed -i 's/sfdisk /sfdisk --force /' /sbin/setup-disk\r"
+send "sed -i 's/sfdisk /sfdisk --force /' /usr/sbin/setup-disk\r"
 
 expect "localhost:~#"
 send "vi /root/answerfile\r"
