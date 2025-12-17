@@ -18,9 +18,6 @@ expect "\[SHA256\]"
 set qemukey [exec cat ./qemukey.pub]
 set answerfile [exec cat ./answerfile]
 
-# Modify answerfile to add -f to DISKOPTS for forcing disk partitioning
-regsub {DISKOPTS=".*"} $answerfile {DISKOPTS="-v -m sys -s 0 /dev/vda"} answerfile
-
 #
 # install the system
 #
@@ -91,6 +88,12 @@ send "$env(ROOT_PASSWORD)\n"
 
 expect "user?"
 send "no\r"
+
+expect "Which disk"
+send "vdb\r"
+
+expect "How would you like to use it?"
+send "sys\r"
 
 expect "continue?"
 send "y\r"
