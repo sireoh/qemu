@@ -164,4 +164,3 @@ send "\x01"
 send "x"
 
 close -i $qemuID
-
